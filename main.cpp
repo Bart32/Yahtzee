@@ -92,6 +92,7 @@ int main()
                        aces++;
                    }
             }
+        cout << "You added ace's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
         case 2:
@@ -103,6 +104,7 @@ int main()
                         twos=twos+2;
                    }
             }
+        cout << "You added two's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
         case 3:
@@ -114,6 +116,7 @@ int main()
                         threes=threes+3;
                    }
             }
+        cout << "You added three's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
         case 4:
@@ -125,6 +128,7 @@ int main()
                        fours=fours+2;
                    }
             }
+        cout << "You added four's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
         case 5:
@@ -136,6 +140,20 @@ int main()
                        fives=fives+5;
                    }
             }
+        cout << "You added five's" << endl;
+        cout << "You'r score is"<< score << endl;
+        break;
+        }
+        case 6:
+            for(int k=0; k<=4; k++)
+            {
+                if(dices[k]==5)
+                   {
+                       score=score+6;
+                       sixes=sixes+6;
+                   }
+            }
+        cout << "You added sixe's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
         }
