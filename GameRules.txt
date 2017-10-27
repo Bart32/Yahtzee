@@ -3,7 +3,7 @@
 3.Threes (The sum of dice with the number 3)
 4.Fours (The sum of dice with the number 4)
 5.Fives (The sum of dice with the number 5)
-6.Siexes (The sum of dice with the number 1)
+6.Sixes (The sum of dice with the number 6)
 7.Three Of A Kind (At least three dice the same) [SUM OF ALL DICE]
 8.Four Of A Kind(At least four dice the same) [SUM OF ALL DICE]
 9.Full House ( Three of one number and two of another) [25]

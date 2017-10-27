@@ -14,7 +14,7 @@ int choice;
 int counter=0;
 int moves=26;
 int score=0;
-int aces=0, twos=0,threes=0,fours=0,fives=0,siexes=0;
+int aces=0, twos=0,threes=0,fours=0,fives=0,sixes=0;
 int quantity_of_changes;
 void draw_again ()
 {
@@ -144,7 +144,6 @@ int main()
         cout << "You added five's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
-        }
         case 6:
             for(int k=0; k<=4; k++)
             {
@@ -157,7 +156,6 @@ int main()
         cout << "You added sixe's" << endl;
         cout << "You'r score is"<< score << endl;
         break;
-        }
         case 7:
             for(int l = 0; l<=4;l++)
             {
@@ -167,12 +165,30 @@ int main()
                 }
             }
             if(counter>=3)
-                for(l=0; l<=4; l++)
+                for(int ll=0; ll<=4; ll++)
                     {
-                        score=score+dices[l];
+                        score=score+dices[ll];
                     }
         cout << "You added Three Of A Kind" << endl;
         cout << "You'r score is"<< score << endl;
         break;
+        case 8:
+            for(int l = 0; l<=4;l++)
+            {
+                if(dices[l] ==dices[l+1])
+                {
+                    counter++;
+                }
+            }
+            if(counter>=4)
+                for(int ll=0; ll<=4; ll++)
+                    {
+                        score=score+dices[ll];
+                    }
+        cout << "You added Four Of A Kind" << endl;
+        cout << "You'r score is"<< score << endl;
+        break;
+        }
+
     }
 }
