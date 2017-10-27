@@ -5,13 +5,16 @@
 #include <string>
 using namespace std;
 int dices[5];
+int dice_nr=1;
 int choose;
-int draw_nr=3;
+int draw_nr=2;
 string line;
 int line_number=1;
 int choice;
 int moves=26;
-    int quantity_of_changes;
+int score=0;
+int aces=0, twos=0,threes=0,fours=0,fives=0,siexes=0;
+int quantity_of_changes;
 void draw_again ()
 {
     int dice_change;
@@ -19,7 +22,7 @@ void draw_again ()
                         {
                             cout <<"You can't do thing's like that !!!" << endl;
                         }
-                    for(int j=0; j<quantity_of_changes; j++)
+                    for(int i=0; i<quantity_of_changes; i++)
                     {
                         cout << "What dices you want to change? (Enter number)" <<endl;
                         cin>>dice_change;
@@ -36,8 +39,12 @@ int main()
     for(int i=0; i<moves; i++)
     {
         cout << "Your numbers are" << endl;
-        cout << "Nr1."<<"["<<dices[0]<<"]"<<" Nr2."<<"["<<dices[1]<<"]"<<" Nr3."
-        <<"["<<dices[2]<<"]"<<" Nr4."<<"["<<dices[3]<<"]"<<" Nr5."<<"["<<dices[4]<<"]"<<endl;
+        for(int j=0; j<5; j++)
+        {
+            cout <<"Nr"<<dice_nr <<"[" << dices[j] << "]"<< " ";
+            dice_nr++;
+        }
+        cout <<""<< endl;
         cout << "----------------------------------------" << endl;
         string line;
         fstream file;
@@ -61,6 +68,7 @@ int main()
         switch( choice )
         {
         case 0:
+            dice_nr=dice_nr-5; // restarting numbers after the draw
             if(draw_nr<=0)
             {
                 cout << "You cant draw again" << endl;
@@ -74,6 +82,62 @@ int main()
             moves++;
             draw_nr--;
             }
+        break;
+        case 1:
+            for(int k=0; k<=4; k++)
+            {
+                if(dices[k]==1)
+                   {
+                       score++;
+                       aces++;
+                   }
+            }
+        cout << "You'r score is"<< score << endl;
+        break;
+        case 2:
+            for(int k=0; k<=4; k++)
+            {
+                if(dices[k]==2)
+                   {
+                        score=score+2;
+                        twos=twos+2;
+                   }
+            }
+        cout << "You'r score is"<< score << endl;
+        break;
+        case 3:
+            for(int k=0; k<=4; k++)
+            {
+                if(dices[k]==3)
+                   {
+                        score=score+3;
+                        threes=threes+3;
+                   }
+            }
+        cout << "You'r score is"<< score << endl;
+        break;
+        case 4:
+            for(int k=0; k<=4; k++)
+            {
+                if(dices[k]==4)
+                   {
+                       score=score+4;
+                       fours=fours+2;
+                   }
+            }
+        cout << "You'r score is"<< score << endl;
+        break;
+        case 5:
+            for(int k=0; k<=4; k++)
+            {
+                if(dices[k]==5)
+                   {
+                       score=score+5;
+                       fives=fives+5;
+                   }
+            }
+        cout << "You'r score is"<< score << endl;
+        break;
         }
     }
 }

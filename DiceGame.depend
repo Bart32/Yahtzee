@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1509018184 source:d:\programowanie\c++\projekty\dice game\dicegame\main.cpp
+1509099007 source:d:\programowanie\c++\projekty\dice game\dicegame\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
