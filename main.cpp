@@ -11,6 +11,7 @@ int draw_nr=2;
 string line;
 int line_number=1;
 int choice;
+int counter=0;
 int moves=26;
 int score=0;
 int aces=0, twos=0,threes=0,fours=0,fives=0,siexes=0;
@@ -157,5 +158,21 @@ int main()
         cout << "You'r score is"<< score << endl;
         break;
         }
+        case 7:
+            for(int l = 0; l<=4;l++)
+            {
+                if(dices[l] ==dices[l+1])
+                {
+                    counter++;
+                }
+            }
+            if(counter>=3)
+                for(l=0; l<=4; l++)
+                    {
+                        score=score+dices[l];
+                    }
+        cout << "You added Three Of A Kind" << endl;
+        cout << "You'r score is"<< score << endl;
+        break;
     }
 }
