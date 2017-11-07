@@ -38,6 +38,12 @@ int main()
         {
         dices[d] =( std::rand() % 6 ) +1;
         }
+
+    dices[0]=1;
+    dices[1]=1;
+    dices[2]=1;
+    dices[3]=1;
+    dices[4]=4;
     for(int i=0; i<moves; i++)
     {
         cout << "Your numbers are" << endl;
@@ -69,157 +75,211 @@ int main()
         cin >> choice;
         switch( choice )
         {
-        case 0:
-            dice_nr=dice_nr-5; // restarting numbers after the draw
-            if(draw_nr<=-100)
-            {
-                cout << "You cant draw again" << endl;
-                break;
-            }
-            cout << "How many dices do you want to change?" <<endl;
-            cin >> quantity_of_changes;
-            draw_again();
-            if(quantity_of_changes!=0)
-            {
-            moves++;
-            draw_nr--;
-            }
-        break;
-        case 1:
-            for(int k=0; k<=4; k++)
-            {
-                if(dices[k]==1)
-                   {
-                       score++;
-                       aces++;
-                   }
-            }
-        cout << "You added ace's" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 2:
-            for(int k=0; k<=4; k++)
-            {
-                if(dices[k]==2)
-                   {
-                        score=score+2;
-                        twos=twos+2;
-                   }
-            }
-        cout << "You added two's" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 3:
-            for(int k=0; k<=4; k++)
-            {
-                if(dices[k]==3)
-                   {
-                        score=score+3;
-                        threes=threes+3;
-                   }
-            }
-        cout << "You added three's" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 4:
-            for(int k=0; k<=4; k++)
-            {
-                if(dices[k]==4)
-                   {
-                       score=score+4;
-                       fours=fours+2;
-                   }
-            }
-        cout << "You added four's" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 5:
-            for(int k=0; k<=4; k++)
-            {
-                if(dices[k]==5)
-                   {
-                       score=score+5;
-                       fives=fives+5;
-                   }
-            }
-        cout << "You added five's" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 6:
-            for(int k=0; k<=4; k++)
-            {;
-                if(dices[k]==5)
-                   {
-                       score=score+6;
-                       sixes=sixes+6;
-                   }
-            }
-        cout << "You added sixe's" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 7:
-            for (int k=0; k<= 4; k++)
-            {
-
-                for(int l=k+1; l<=4; l++)
+            case 0:
+                dice_nr=dice_nr-5; // restarting numbers after the draw
+                if(draw_nr<=-100)
                 {
-                    if (dices[k]==dices[l])
-                    {
-                        counter++;
-                    }
+                    cout << "You cant draw again" << endl;
+                    break;
                 }
-                if(counter==3)
+                cout << "How many dices do you want to change?" <<endl;
+                cin >> quantity_of_changes;
+                draw_again();
+                if(quantity_of_changes!=0)
                 {
-                break;
+                moves++;
+                draw_nr--;
                 }
-                 counter=1;
-            }
-            if(counter>=3)
+            break;
+            case 1:
                 for(int k=0; k<=4; k++)
-                    {
-                        score=score+dices[k];
-                    }
-            else
-            {
-                cout << "There is no 3 this same dice's" << endl;
-                break;
-            }
-        cout << "You added Threes Of A Kind" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 8:
-            for (int k=0; k<= 4; k++)
-            {
-
-                for(int l=k+1; l<=4; l++)
                 {
-                    if (dices[k]==dices[l])
+                    if(dices[k]==1)
+                       {
+                           score++;
+                           aces++;
+                       }
+                }
+            cout << "You added ace's" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 2:
+                for(int k=0; k<=4; k++)
+                {
+                    if(dices[k]==2)
+                       {
+                            score=score+2;
+                            twos=twos+2;
+                       }
+                }
+            cout << "You added two's" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 3:
+                for(int k=0; k<=4; k++)
+                {
+                    if(dices[k]==3)
+                       {
+                            score=score+3;
+                            threes=threes+3;
+                       }
+                }
+            cout << "You added three's" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 4:
+                for(int k=0; k<=4; k++)
+                {
+                    if(dices[k]==4)
+                       {
+                           score=score+4;
+                           fours=fours+2;
+                       }
+                }
+            cout << "You added four's" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 5:
+                for(int k=0; k<=4; k++)
+                {
+                    if(dices[k]==5)
+                       {
+                           score=score+5;
+                           fives=fives+5;
+                       }
+                }
+            cout << "You added five's" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 6:
+                for(int k=0; k<=4; k++)
+                {;
+                    if(dices[k]==5)
+                       {
+                           score=score+6;
+                           sixes=sixes+6;
+                       }
+                }
+            cout << "You added sixe's" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 7:
+                for (int k=0; k<= 4; k++)
+                {
+
+                    for(int l=k+1; l<=4; l++)
                     {
-                        counter++;
+                        if (dices[k]==dices[l])
+                        {
+                            counter++;
+                        }
+                    }
+                    if(counter==3)
+                    {
+                    break;
+                    }
+                     counter=1;
+                }
+                if(counter>=3)
+                    for(int k=0; k<=4; k++)
+                        {
+                            score=score+dices[k];
+                        }
+                else
+                {
+                    cout << "There is no 3 this same dice's, try something difrent" << endl;
+                    break;
+                }
+            cout << "You added Threes Of A Kind" << endl;
+            cout << "You'r score is"<< score << endl;
+            break;
+            case 8:
+                for (int k=0; k<= 4; k++)
+                {
+
+                    for(int l=k+1; l<=4; l++)
+                    {
+                        if (dices[k]==dices[l])
+                        {
+                            counter++;
+                        }
+                    }
+                    if(counter==4)
+                    {
+                    break;
+                    }
+                    else
+                    {
+                     counter=1;
                     }
                 }
-                if(counter==4)
+                if(counter>=4)
+                    for(int k=0; k<=4; k++)
+                        {
+                            score=score+dices[k];
+                        }
+                else
                 {
-                break;
+                    cout << "There is no 4 this same dice's, try something difrent" << endl;
+                    break;
+                }
+                cout << "You added Fours Of A Kind" << endl;
+                cout << "You'r score is"<< score << endl;
+            break;
+            case 9:
+                ;
+            case 10:
+                if(dices[0-4]==1)
+                {
+                 cout << " K O Z A K " << endl;
                 }
                 else
                 {
-                 counter=1;
+                    cout <<" NIE KOZAK" << endl;
                 }
-            }
-            if(counter>=4)
-                for(int k=0; k<=4; k++)
+            break;
+            case 11:
+                    ;
+            case 12:
+                for (int k=0; k<= 4; k++)
+                {
+                    for(int l=k+1; l<=4; l++)
+                    {
+                        if (dices[k]==dices[l])
+                        {
+                            counter++;
+                        }
+                    }
+                    if(counter==5)
+                    {
+                    break;
+                    }
+                    else
+                    {
+                     counter=1;
+                    }
+                }
+                if(counter>=5)
+                        {
+                            score+=50;
+                        }
+                else
+                {
+                    cout << "There is no 5 this same dice's, try something difrent" << endl;
+                    break;
+                }
+                cout << "Yahtzee !! You gain 50 points !" << endl;
+                cout << "You'r score is"<< score << endl;
+                break;
+                case 13:
+                    for(int k=0; k<=4; k++)
                     {
                         score=score+dices[k];
                     }
-            else
-            {
-                cout << "There is no 4 this same dice's";
+                    cout << "You added all dice's" << endl;
+                    cout << "You'r score is"<< score << endl;
                 break;
-            }
-        cout << "You added Fours Of A Kind" << endl;
-        cout << "You'r score is"<< score << endl;
+                }
         }
 
-    }
 }

@@ -10,4 +10,4 @@
 10.Small Straight (Four sequential dice 1-2-3-4, 2-3-4-5, or 3-4-5-6) [30]
 11.Large Straight (Five sequential dice 1-2-3-4-5 or 2-3-4-5-6) [40]
 12.Yahtzee (All five dice the same) [50] 
-13. Chance Any combination [SUM OF ALL DICE]
+13.Chance Any combination [SUM OF ALL DICE]
