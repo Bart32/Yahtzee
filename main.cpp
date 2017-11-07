@@ -1,10 +1,6 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <fstream>
-#include <string>
-using namespace std;
-int dices[5];
+#include "dice_functions.cpp"
+#include "dice_functions.h"
+int dices[4];
 int dice_nr=1;
 int choose;
 int draw_nr=2;
@@ -16,20 +12,6 @@ int moves=26;
 int score=0;
 int aces=0, twos=0,threes=0,fours=0,fives=0,sixes=0;
 int quantity_of_changes;
-void draw_again ()
-{
-    int dice_change;
-                    if(quantity_of_changes==0)
-                        {
-                            cout <<"You can't do thing's like that !!!" << endl;
-                        }
-                    for(int i=0; i<quantity_of_changes; i++)
-                    {
-                        cout << "What dices you want to change? (Enter number)" <<endl;
-                        cin>>dice_change;
-                        dices[dice_change-1] =( std::rand() % 6 ) +1;
-                    }
-}
 int main()
 {
         srand( time( NULL ) );
@@ -146,7 +128,7 @@ int main()
         break;
         case 6:
             for(int k=0; k<=4; k++)
-            {
+            {;
                 if(dices[k]==5)
                    {
                        score=score+6;
@@ -157,37 +139,66 @@ int main()
         cout << "You'r score is"<< score << endl;
         break;
         case 7:
-            for(int l = 0; l<=4;l++)
+
+            for(int k = 0; k<=4;k++)
             {
-                if(dices[l] ==dices[l+1])
+                cout <<"############"   << k << endl;
+               for (int l = k+1; l<=4; l++)
                 {
-                    counter++;
-                }
-            }
-            if(counter>=3)
-                for(int ll=0; ll<=4; ll++)
+
+                    cout << "!!!!!!!!!!!!!!"<< l << endl;
+                        if ((k!=(l+1)) && dices[k] ==dices[l+1])
                     {
-                        score=score+dices[ll];
+                        counter++;
+
                     }
-        cout << "You added Three Of A Kind" << endl;
-        cout << "You'r score is"<< score << endl;
-        break;
-        case 8:
-            for(int l = 0; l<=4;l++)
-            {
-                if(dices[l] ==dices[l+1])
-                {
-                    counter++;
+
                 }
             }
             if(counter>=4)
-                for(int ll=0; ll<=4; ll++)
+                for(int k=0; k<=4; k++)
                     {
-                        score=score+dices[ll];
+                        score=score+dices[k];
                     }
-        cout << "You added Four Of A Kind" << endl;
+            else
+            {
+                cout << "There is no 3 this same dice's";
+                break;
+            }
+        cout << "LICZNIK WNOSI !!!!!!!!!! " << counter << endl;
+        cout << "You added Threes Of A Kind" << endl;
         cout << "You'r score is"<< score << endl;
         break;
+        case 8:
+
+            for(int k = 0; k<=4;k++)
+            {
+                cout <<"############"   << k << endl;
+               for (int l = k+1; l<=4; l++)
+                {
+
+                    cout << "!!!!!!!!!!!!!!"<< l << endl;
+                        if ((k!=(l+1)) && dices[k] ==dices[l+1])
+                    {
+                        counter++;
+
+                    }
+
+                }
+            }
+            if(counter>=4)
+                for(int k=0; k<=4; k++)
+                    {
+                        score=score+dices[k];
+                    }
+            else
+            {
+                cout << "There is no 4 this same dice's";
+                break;
+            }
+        cout << "LICZNIK WNOSI !!!!!!!!!! " << counter << endl;
+        cout << "You added Fours Of A Kind" << endl;
+        cout << "You'r score is"<< score << endl;
         }
 
     }
