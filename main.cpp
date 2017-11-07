@@ -41,8 +41,6 @@ int main()
     for(int i=0; i<moves; i++)
     {
         cout << "Your numbers are" << endl;
-        dices[0]=1;
-        dices[1]=1;
         for(int j=0; j<5; j++)
         {
             cout <<"Nr"<<dice_nr <<"[" << dices[j] << "]"<< " ";
