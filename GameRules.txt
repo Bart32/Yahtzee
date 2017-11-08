@@ -4,10 +4,11 @@
 4.Fours (The sum of dice with the number 4)
 5.Fives (The sum of dice with the number 5)
 6.Sixes (The sum of dice with the number 6)
-7.Three Of A Kind (At least three dice the same) [SUM OF ALL DICE]
-8.Four Of A Kind(At least four dice the same) [SUM OF ALL DICE]
-9.Full House ( Three of one number and two of another) [25]
-10.Small Straight (Four sequential dice 1-2-3-4, 2-3-4-5, or 3-4-5-6) [30]
-11.Large Straight (Five sequential dice 1-2-3-4-5 or 2-3-4-5-6) [40]
-12.Yahtzee (All five dice the same) [50] 
-13. Chance Any combination [SUM OF ALL DICE]
+7. Chance Any combination [SUM OF ALL DICE]
+8.Three Of A Kind (At least three dice the same) [SUM OF ALL DICE]
+9.Four Of A Kind(At least four dice the same) [SUM OF ALL DICE]
+10.Full House ( Three of one number and two of another) [25]
+11.Small Straight (Four sequential dice 1-2-3-4, 2-3-4-5, or 3-4-5-6) [30]
+12.Large Straight (Five sequential dice 1-2-3-4-5 or 2-3-4-5-6) [40]
+13.Yahtzee (All five dice the same) [50] 
+
