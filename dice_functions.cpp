@@ -82,7 +82,7 @@ void draw_again (int changes, int tab[])
 }
 
 
-void same_dices(int x,int tab[], int score)
+void same_dices(int x,int tab[], int score, int d_tab[])
 {
     int counter=1;
     for (int k=0; k<= 4; k++)
@@ -102,12 +102,22 @@ void same_dices(int x,int tab[], int score)
     }
     if(counter>=x)
     {
-        for(int k=0; k<=4; k++)
-        {
-        cout << "You added "<< x <<" Of A Kind" << endl;
-            score=score+tab[k];
-        cout << "You'r score is"<< score << endl;
-        }
+//        if (counter>=5)
+//        {
+//            score+=50;
+//            cout<< "Yahtzee !! You gain 50 points !" << endl;
+//        }
+//        else if (counter<5)
+//        {
+            for(int k=0; k<=4; k++)
+            {
+                score=+tab[k];
+                d_tab[5+x]+=tab[k];
+
+            }
+            cout << "You added "<< x <<" Of A Kind" << endl;
+            cout << "You'r score is"<< score << endl;
+//        }
     }
     else
     {

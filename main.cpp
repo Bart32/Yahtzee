@@ -20,11 +20,11 @@ int main()
     {
         dices[d] =( std::rand() % 6 ) +1;
     }
-    dices[0]=1;
+    dices[0]=2;
     dices[1]=2;
-    dices[2]=3;
-    dices[3]=4;
-    dices[4]=5;
+    dices[2]=2;
+    dices[3]=2;
+    dices[4]=2;
     int dice_nr=1;
     for(int i=0; i<moves; i++)
     {
@@ -98,10 +98,10 @@ int main()
                 cout << "You'r score is"<< score << endl;
             break;
             case 8:
-                same_dices(3, dices,score);
+                same_dices(3, dices,score,dice_values);
             break;
             case 9:
-                same_dices(4, dices,score);
+                same_dices(4, dices,score,dice_values);
             break;
             case 10:
             break;
@@ -112,7 +112,7 @@ int main()
                 straight(2,35,dices,score);
             break;
             case 13:
-                same_dices(5, dices,score);
+                same_dices(5, dices,score,dice_values);
             break;
                 }
     }
