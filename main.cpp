@@ -12,7 +12,7 @@ int moves=26;
 int score=0;
 int dice_values[8];
 int quantity_of_changes;
-string points_checker[5] = {"  -","  -","  -","  -","-"};
+string points_checker[5] = {" - "," - "," - "," - "," - "};
 int main()
 {
     srand( time( NULL ) );
@@ -20,11 +20,11 @@ int main()
     {
         dices[d] =( std::rand() % 6 ) +1;
     }
-    dices[0]=2;
-    dices[1]=2;
-    dices[2]=2;
-    dices[3]=2;
-    dices[4]=2;
+    dices[0]=5;
+    dices[1]=5;
+    dices[2]=5;
+    dices[3]=5;
+    dices[4]=5;
     int dice_nr=1;
     for(int i=0; i<moves; i++)
     {
@@ -41,6 +41,18 @@ int main()
         int choice;
         cout << "Choose you'r action" << endl;
         cin >> choice;
+        if (!cin || choice > 13)
+        {
+            cin.clear(); // czyœcimy flagi b³êdu strumienia
+            cin.sync(); // czyœcimy bufor strumienia
+            dice_nr=dice_nr-5;
+            cout << endl;
+            cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
+            cout << "!Wrong action, try something diffrent!" << endl;
+            cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
+            cout << endl;
+            continue;
+        }
         switch( choice )
         {
             case 0:
@@ -93,26 +105,27 @@ int main()
                     for(int k=0; k<=4; k++)
                     {
                         score=score+dices[k];
+                        dice_values[6]+=dices[k];
                     }
                 cout << "You added all dice's " << endl;
                 cout << "You'r score is"<< score << endl;
             break;
             case 8:
-                same_dices(3, dices,score,dice_values);
+                same_dices(3, dices,score,dice_values,points_checker);
             break;
             case 9:
-                same_dices(4, dices,score,dice_values);
+                same_dices(4, dices,score,dice_values, points_checker );
             break;
             case 10:
             break;
             case 11:
-                straight(3,25,dices,score);
+                straight(3,25,dices,score,points_checker);
             break;
             case 12:
-                straight(2,35,dices,score);
+                straight(2,35,dices,score,points_checker);
             break;
             case 13:
-                same_dices(5, dices,score,dice_values);
+                same_dices(5, dices,score,dice_values, points_checker);
             break;
                 }
     }

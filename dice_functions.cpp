@@ -29,7 +29,38 @@ void open_file(int tab[], string p_tab[])
         cout<<"File doesn't work!" << endl;
     }
 }
-void straight(int x, int y, int tab[], int score)
+///////////////////////////////////////////
+void draw_again (int changes, int tab[])
+{
+    int dice_change;
+    if(changes==0)
+    {
+        cout <<"You can't do thing's like that !!!" << endl;
+    }
+    cout << "What dices you want to change? (Enter number)" <<endl;
+    for(int i=0; i<changes; i++)
+    {
+        cin>>dice_change;
+        tab[dice_change-1] =( std::rand() % 6 ) +1;
+    }
+}
+///////////////////////////////////////////
+
+void adding_dices(int x, int tab[],int score, int d_tab[])
+{
+    for(int k=0; k<=4; k++)
+    {
+        if(tab[k]==x)
+        {
+            score=score+x;
+            d_tab[x-1]+=x;
+        }
+    }
+}
+
+///////////////////////////////////////////
+
+void straight(int x, int y, int tab[], int score, string p_tab[])
 {
     int counter=1;
     for (int k=0; k<= 4; k++)
@@ -50,39 +81,16 @@ void straight(int x, int y, int tab[], int score)
     }
     if(counter<x)
     {
+        p_tab[4-x]=" V";
         score+=y;
         cout << "You have stragith" << endl;
         cout << "You'r score is"<< score << endl;
     }
 }
-void adding_dices(int x, int tab[],int score, int d_tab[])
-{
-    for(int k=0; k<=4; k++)
-    {
-        if(tab[k]==x)
-        {
-            score=score+x;
-            d_tab[x-1]+=x;
-        }
-    }
-}
-void draw_again (int changes, int tab[])
-{
-    int dice_change;
-    if(changes==0)
-    {
-        cout <<"You can't do thing's like that !!!" << endl;
-    }
-    cout << "What dices you want to change? (Enter number)" <<endl;
-    for(int i=0; i<changes; i++)
-    {
-        cin>>dice_change;
-        tab[dice_change-1] =( std::rand() % 6 ) +1;
-    }
-}
 
+///////////////////////////////////////////
 
-void same_dices(int x,int tab[], int score, int d_tab[])
+void same_dices(int x,int tab[], int score, int d_tab[], string p_tab[])
 {
     int counter=1;
     for (int k=0; k<= 4; k++)
@@ -102,22 +110,23 @@ void same_dices(int x,int tab[], int score, int d_tab[])
     }
     if(counter>=x)
     {
-//        if (counter>=5)
-//        {
-//            score+=50;
-//            cout<< "Yahtzee !! You gain 50 points !" << endl;
-//        }
-//        else if (counter<5)
-//        {
+        if (counter == 5)
+        {
+            p_tab[3]=" V";
+            score+=50;
+            cout << "Yahtzee ! You gain 50 points !!" << endl;
+            cout << "You'r score is"<< score << endl;
+        }
+        else
+        {
             for(int k=0; k<=4; k++)
             {
                 score=+tab[k];
-                d_tab[5+x]+=tab[k];
-
+                d_tab[4+x]+=tab[k];
             }
             cout << "You added "<< x <<" Of A Kind" << endl;
             cout << "You'r score is"<< score << endl;
-//        }
+        }
     }
     else
     {
