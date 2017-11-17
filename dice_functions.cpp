@@ -74,8 +74,14 @@ void straight(int x, int y, int tab[], int score, string p_tab[])
         }
         if(counter==x)
         {
-            cout << "There is no straight,try something difrent" << endl;
-            break;
+            char adding_zero;
+            cout << "There is no straight,do you want add 0? (Y/N)" << endl;
+            cin >> adding_zero;
+            if (adding_zero=='Y' || adding_zero=='y')
+            {
+                    p_tab[4-x]=" X";
+            }
+        break;
         }
         counter=1;
     }
@@ -87,10 +93,65 @@ void straight(int x, int y, int tab[], int score, string p_tab[])
         cout << "You'r score is"<< score << endl;
     }
 }
+///////////////////////////////////////////////////////
+void full(int score, string p_tab[], int tab[])
+{
+    int checker;
+    int counter=1;
+    for (int k=0; k<= 4; k++)
+    {
+        for(int l=k+1; l<=4; l++)
+        {
+            if (tab[k]==tab[l])
+            {
+                checker=tab[k];
+                counter++;
+            }
+        }
+        if(counter==2 || counter==3)
+        {
+            break;
+        }
+        counter=1;
+    }
+        int s_counter=1;
+        if(counter==2 || counter==3)
 
-///////////////////////////////////////////
-
-void same_dices(int x,int tab[], int score, int d_tab[], string p_tab[])
+            for (int kk=0; kk<= 4; kk++)
+            {
+                for(int ll=kk+1; ll<=4; ll++)
+                {
+                    if (tab[kk]==tab[ll] && tab[kk]!=checker)
+                    {
+                    s_counter++;
+                    }
+                }
+                if (s_counter+counter==5)
+                {
+                    break;
+                }
+                s_counter=1;
+            }
+            if (s_counter+counter==5)
+            {
+                cout << "You have full" << endl;
+                p_tab[0]=" V";
+                score+=25;
+                cout << "You'r score is"<< score << endl;
+            }
+            else
+            {
+            char adding_zero;
+            cout << "There is no straight,do you want add 0? (Y/N)" << endl;
+            cin >> adding_zero;
+            if (adding_zero=='Y' || adding_zero=='y')
+            {
+                     p_tab[0]=" X";
+            }
+            }
+}
+////////////////////////////////////
+int check (int tab[], int x)
 {
     int counter=1;
     for (int k=0; k<= 4; k++)
@@ -104,32 +165,25 @@ void same_dices(int x,int tab[], int score, int d_tab[], string p_tab[])
         }
         if(counter==x)
         {
+            return 1;
             break;
         }
-        counter=1;
+    counter=1;
     }
-    if(counter>=x)
+    return 0;
+}
+int adding_zero()
+{
+    char adding_zero;
+    cout << "You cant do this, do you want add 0? (Y/N)" << endl;
+    cin >> adding_zero;
+    if (adding_zero=='Y' || adding_zero=='y')
     {
-        if (counter == 5)
-        {
-            p_tab[3]=" V";
-            score+=50;
-            cout << "Yahtzee ! You gain 50 points !!" << endl;
-            cout << "You'r score is"<< score << endl;
-        }
-        else
-        {
-            for(int k=0; k<=4; k++)
-            {
-                score=+tab[k];
-                d_tab[4+x]+=tab[k];
-            }
-            cout << "You added "<< x <<" Of A Kind" << endl;
-            cout << "You'r score is"<< score << endl;
-        }
+        return 1;
     }
     else
     {
-        cout << "There is no "<< x<<" this same dice's, try something difrent" << endl;
+        return 0;
     }
 }
+

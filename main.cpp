@@ -21,8 +21,8 @@ int main()
         dices[d] =( std::rand() % 6 ) +1;
     }
     dices[0]=5;
-    dices[1]=5;
-    dices[2]=5;
+    dices[1]=4;
+    dices[2]=4;
     dices[3]=5;
     dices[4]=5;
     int dice_nr=1;
@@ -111,12 +111,39 @@ int main()
                 cout << "You'r score is"<< score << endl;
             break;
             case 8:
-                same_dices(3, dices,score,dice_values,points_checker);
+                if (check(dices, 3)==1)
+                {
+                    for(int k=0; k<=4; k++)
+                    {
+                        score=score+dices[k];
+                        dice_values[7]+=dices[k];
+                    }
+                }
+                else
+                {
+                   if( adding_zero()==1);
+                   {
+                    ;
+                   }
+                }
             break;
             case 9:
-                same_dices(4, dices,score,dice_values, points_checker );
+                if (check(dices, 4)==1)
+                {
+                    for(int k=0; k<=4; k++)
+                    {
+                        score=score+dices[k];
+                        dice_values[8]+=dices[k];
+                    }
+                }
+                else
+                   if( adding_zero()==1);
+                   {
+                    ;
+                   }
             break;
             case 10:
+
             break;
             case 11:
                 straight(3,25,dices,score,points_checker);
@@ -125,8 +152,21 @@ int main()
                 straight(2,35,dices,score,points_checker);
             break;
             case 13:
-                same_dices(5, dices,score,dice_values, points_checker);
-            break;
+                if (check(dices, 5)==1)
+                {
+                    points_checker[3]=" V";
+                    score+=50;
+                    cout << "Yahtzee ! You gain 50 points !!" << endl;
+                    cout << "You'r score is"<< score << endl;
                 }
+                else
+                {
+                    if(adding_zero()==1);
+                    {
+                    ;
+                    }
+                }
+                break;
+        }
     }
 }
