@@ -46,21 +46,7 @@ void draw_again (int changes, int tab[])
 }
 ///////////////////////////////////////////
 
-void adding_dices(int x, int tab[],int score, int d_tab[])
-{
-    for(int k=0; k<=4; k++)
-    {
-        if(tab[k]==x)
-        {
-            score=score+x;
-            d_tab[x-1]+=x;
-        }
-    }
-}
-
-///////////////////////////////////////////
-
-void straight(int x, int y, int tab[], int score, string p_tab[])
+int straight(int x,int tab[])
 {
     int counter=1;
     for (int k=0; k<= 4; k++)
@@ -74,27 +60,17 @@ void straight(int x, int y, int tab[], int score, string p_tab[])
         }
         if(counter==x)
         {
-            char adding_zero;
-            cout << "There is no straight,do you want add 0? (Y/N)" << endl;
-            cin >> adding_zero;
-            if (adding_zero=='Y' || adding_zero=='y')
-            {
-                    p_tab[4-x]=" X";
-            }
-        break;
+            return 0;
         }
         counter=1;
     }
     if(counter<x)
     {
-        p_tab[4-x]=" V";
-        score+=y;
-        cout << "You have stragith" << endl;
-        cout << "You'r score is"<< score << endl;
+        return 1;
     }
 }
 ///////////////////////////////////////////////////////
-void full(int score, string p_tab[], int tab[])
+int full(int tab[])
 {
     int checker;
     int counter=1;
@@ -134,20 +110,11 @@ void full(int score, string p_tab[], int tab[])
             }
             if (s_counter+counter==5)
             {
-                cout << "You have full" << endl;
-                p_tab[0]=" V";
-                score+=25;
-                cout << "You'r score is"<< score << endl;
+                return 1;
             }
             else
             {
-            char adding_zero;
-            cout << "There is no straight,do you want add 0? (Y/N)" << endl;
-            cin >> adding_zero;
-            if (adding_zero=='Y' || adding_zero=='y')
-            {
-                     p_tab[0]=" X";
-            }
+                return 0;
             }
 }
 ////////////////////////////////////
@@ -193,3 +160,15 @@ void show_score(string category, int scr)
     cout << "You'r score is "<< scr << endl;
 }
 
+int adding_dices(int x, int tab[])
+{
+    int counter=0;
+    for(int k=0; k<=4; k++)
+    {
+        if(tab[k]==x)
+        {
+            counter++;
+        }
+    }
+return counter*x;
+}
