@@ -6,6 +6,7 @@
 #include "dice_functions.h"
 using namespace std;
 int dices[4];
+int already_used[12] = {0};
 int choose;
 int draw_nr=2;
 int moves=26;
@@ -72,99 +73,198 @@ int main()
                 }
             break;
             case 1:
+                if (already_used[0]!=1)
+                {
                 adding_dices(1, dices, score, dice_values);
-                cout << "You added ace's" << endl;
-                cout << "You'r score is"<< score << endl;
+                show_score("ace's", score);
+                already_used[0]=1;
+                }
+                else
+                {
+                 cout << "You already used this action, try something diffrent"<< endl;
+                }
                 break;
             case 2:
+                if (already_used[1]!=1)
+                {
                 adding_dices(2, dices, score, dice_values);
-                cout << "You added two's" << endl;
-                cout << "You'r score is"<< score << endl;
+                show_score("two's", score);
+                already_used[1]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
+
             break;
             case 3:
+                if (already_used[2]!=1)
+                {
                 adding_dices(3, dices, score, dice_values);
-                cout << "You added three's" << endl;
-                cout << "You'r score is"<< score << endl;
+                show_score("three's", score);
+                already_used[2]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
             break;
             case 4:
-                adding_dices(4, dices, score, dice_values);
-                cout << "You added four's" << endl;
-                cout << "You'r score is"<< score << endl;
+                if (already_used[3]!=1)
+                {
+                                 adding_dices(4, dices, score, dice_values);
+                show_score("four's", score);
+                already_used[3]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
             break;
             case 5:
-               adding_dices(5, dices, score, dice_values);
-                cout << "You added five's" << endl;
-                cout << "You'r score is"<< score << endl;
+                if (already_used[4]!=1)
+                {
+                adding_dices(5, dices, score, dice_values);
+                show_score("five's", score);
+                already_used[4]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
             break;
             case 6:
+                if (already_used[5]!=1)
+                {
                 adding_dices(6, dices, score, dice_values);
-                cout << "You added sixe's" << endl;
-                cout << "You'r score is"<< score << endl;
+                show_score("sixes", score);
+                already_used[5]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
             break;
             case 7:
+                if(already_used[6]!=1)
+                {
                     for(int k=0; k<=4; k++)
                     {
                         score=score+dices[k];
                         dice_values[6]+=dices[k];
+                        already_used[6]=1;
                     }
-                cout << "You added all dice's " << endl;
-                cout << "You'r score is"<< score << endl;
+                    show_score("all", score);
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
             break;
             case 8:
-                if (check(dices, 3)==1)
+                if(already_used[7!=1])
                 {
-                    for(int k=0; k<=4; k++)
+                    if (check(dices, 3)==1)
                     {
-                        score=score+dices[k];
-                        dice_values[7]+=dices[k];
+                        for(int k=0; k<=4; k++)
+                        {
+                            score=score+dices[k];
+                            dice_values[7]+=dices[k];
+                        }
+                    already_used[7]=1;
+                    show_score("Three of a kind ", score);
+                    }
+                    else
+                    {
+                           if( adding_zero()==1);
+                           {
+                            already_used[7]=1;
+                           }
                     }
                 }
                 else
                 {
-                   if( adding_zero()==1);
-                   {
-                    ;
-                   }
+                cout << "You already used this action, try something diffrent"<< endl;
                 }
             break;
             case 9:
-                if (check(dices, 4)==1)
+                if (already_used[8]!=1)
                 {
-                    for(int k=0; k<=4; k++)
+                    if (check(dices, 4)==1)
                     {
-                        score=score+dices[k];
-                        dice_values[8]+=dices[k];
+                        for(int k=0; k<=4; k++)
+                        {
+                            score=score+dices[k];
+                            dice_values[8]+=dices[k];
+                        }
+                    already_used[8]=1;
+                    show_score("four of a kind ", score);
                     }
+                    else
+                       if( adding_zero()==1);
+                       {
+                        already_used[8]=1;
+                       }
                 }
                 else
-                   if( adding_zero()==1);
-                   {
-                    ;
-                   }
+                {
+                    cout << "You already used this action, try something diffrent"<< endl;
+                }
             break;
             case 10:
-
-            break;
-            case 11:
-                straight(3,25,dices,score,points_checker);
-            break;
-            case 12:
-                straight(2,35,dices,score,points_checker);
-            break;
-            case 13:
-                if (check(dices, 5)==1)
+                if(already_used[9]!=1)
                 {
-                    points_checker[3]=" V";
-                    score+=50;
-                    cout << "Yahtzee ! You gain 50 points !!" << endl;
-                    cout << "You'r score is"<< score << endl;
+
                 }
                 else
                 {
-                    if(adding_zero()==1);
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
+            break;
+            case 11:
+                if(already_used[10]!=1)
+                {
+                    straight(3,25,dices,score,points_checker);
+                    already_used[10]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
+            break;
+            case 12:
+                if(already_used[11]!=1)
+                {
+                    straight(2,35,dices,score,points_checker);
+                    already_used[11]=1;
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
+                }
+            break;
+            case 13:
+                if(already_used[12]!=1)
+                {
+                     if (check(dices, 5)==1)
                     {
-                    ;
+                        points_checker[3]=" V";
+                        score+=50;
+                        show_score("Five !", score);
+                        already_used[12]=1;
                     }
+                    else
+                    {
+                        if(adding_zero()==1);
+                        {
+                        points_checker[3]= " X";
+                        already_used[12]=1;
+                        }
+                    }
+                }
+                else
+                {
+                cout << "You already used this action, try something diffrent"<< endl;
                 }
                 break;
         }

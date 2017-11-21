@@ -187,3 +187,9 @@ int adding_zero()
     }
 }
 
+void show_score(string category, int scr)
+{
+    cout << "You added "<< category <<" dice's " << endl;
+    cout << "You'r score is "<< scr << endl;
+}
+

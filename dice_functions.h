@@ -15,3 +15,5 @@ int check (int tab[], int x);
 
 int adding_zero();
 
+void show_score(string category, int scr);
+
