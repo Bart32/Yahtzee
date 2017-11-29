@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511289554 source:d:\programowanie\c++\projekty\dice game\dicegame\main.cpp
+1511986821 source:d:\programowanie\c++\projekty\dice game\dicegame\main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
@@ -7,10 +7,10 @@
 	<string>
 	"dice_functions.h"
 
-1511289547 d:\programowanie\c++\projekty\dice game\dicegame\dice_functions.h
+1511883323 d:\programowanie\c++\projekty\dice game\dicegame\dice_functions.h
 	<iostream>
 
-1511289588 source:d:\programowanie\c++\projekty\dice game\dicegame\dice_functions.cpp
+1511883323 source:d:\programowanie\c++\projekty\dice game\dicegame\dice_functions.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>

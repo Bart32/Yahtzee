@@ -30,15 +30,15 @@ void open_file(int tab[], string p_tab[])
     }
 }
 ///////////////////////////////////////////
-void draw_again (int changes, int tab[])
+void draw_again (int tab[])
 {
-    int dice_change;
-    if(changes==0)
-    {
-        cout <<"You can't do thing's like that !!!" << endl;
-    }
+
+    int quantity_of_changes;
+    cout << "How many dices do you want to change?" <<endl;
+    cin >> quantity_of_changes;
     cout << "What dices you want to change? (Enter number)" <<endl;
-    for(int i=0; i<changes; i++)
+    int dice_change;
+    for(int i=0; i<quantity_of_changes; i++)
     {
         cin>>dice_change;
         tab[dice_change-1] =( std::rand() % 6 ) +1;
@@ -171,4 +171,13 @@ int adding_dices(int x, int tab[])
         }
     }
 return counter*x;
+}
+
+void random_dices(int tab[])
+{
+    srand( time( NULL ) );
+    for (int d=0; d<5; d++)
+    {
+        tab[d] =( std::rand() % 6 ) +1;
+    }
 }
