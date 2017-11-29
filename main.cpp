@@ -57,7 +57,7 @@ int main()
         case 0:
             if(draw_nr<=0)
             {
-                cout << "You cant draw again" << endl;
+                cout << "You cant draw again " << endl;
             }
             else
             {
